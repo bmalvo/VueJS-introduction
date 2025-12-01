@@ -1,34 +1,38 @@
-<!-- <!DOCTYPE html> -->
+<!DOCTYPE html>
 
 <html>
-    <!-- <head>
+    <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
-    </head> -->
+    </head>
     <body>
 
         <div id="app">   
-            <button @click="count++">
+            <button @click="increment">
                 Count is: {{ count }}
             </button> 
         </div>
         
         <script src="https://unpkg.com/vue@3/dist/vue.global.js" async defer></script>
 
-        <script>
-            import { createApp, ref } from 'vue'
+        <script setup>
+            import { ref, onMounted } from 'vue'
 
-            createApp({
-            setup() {
-                return {
-                count: ref(0)
-                }
+            const count = ref(0)
+
+            const increment = () => {
+
+                count.value ++
             }
-            }).mount('#app')
+
+            onMounted(() => {
+                console.log(`The initial count is ${count.value}.`)
+            })
+
         </script>
 
     </body>
