@@ -1,28 +1,33 @@
+<script setup lang="ts">
+import { ref, onMounted } from 'vue'
 
- <script setup lang="ts">
-            import { ref, onMounted } from 'vue'
+const count = ref(0);
+const message = 'Patrick';
+const number = 10;
+const isActive = true;
 
-            const count = ref(0)
+const increment = () => {
 
-            const increment = () => {
+  count.value++
+};
 
-                count.value ++
-            }
+onMounted(() => {
+  console.log(`The initial count is ${count.value}.`)
+});
 
-            onMounted(() => {
-                console.log(`The initial count is ${count.value}.`)
-            })
-
-        </script>
+</script>
 
 <template>
 
 
-        <div id="app">   
-            <button @click="increment">
-                Count is: {{ count }}
-            </button> 
-        </div>
+  <div id="app">   
+    <button @click="increment">
+      Count is: {{ count }}
+    </button> 
+    <h2>{{message}}</h2>
+    <h2>{{number * 2}}</h2>
+    <h2>{{isActive ? 'is active' : 'is not active'}}</h2>
+  </div>
 
 </template>
 
