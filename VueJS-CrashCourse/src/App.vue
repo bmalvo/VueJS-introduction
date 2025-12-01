@@ -1,11 +1,29 @@
-<script setup lang="ts"></script>
+
+ <script setup lang="ts">
+            import { ref, onMounted } from 'vue'
+
+            const count = ref(0)
+
+            const increment = () => {
+
+                count.value ++
+            }
+
+            onMounted(() => {
+                console.log(`The initial count is ${count.value}.`)
+            })
+
+        </script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+
+
+        <div id="app">   
+            <button @click="increment">
+                Count is: {{ count }}
+            </button> 
+        </div>
+
 </template>
 
 <style scoped></style>
