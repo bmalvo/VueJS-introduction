@@ -6,6 +6,7 @@ const message = defineModel();
 const number = 10;
 const isActive = true;
 const url = 'https://edwindiaz.com'
+let options = ['test', 'test2']
 
 const increment = () => {
 
@@ -38,6 +39,42 @@ onMounted(() => {
     </form>
   </div>
 
-</template>
+<!-- Issue! append to a options list doesn't work! Fix this! -->
+
+<div class="container">
+
+  <form action="">
+      
+    <div class="col-sm-6">
+      <input v-model="options" type="text" class="form-control">
+    </div>
+        
+    <fieldset class="form-group">
+      <legend>Radio buttons</legend>
+      <div class="form-check">
+          <label class="form-check-label">
+            <input v-model="options"  type="checkbox" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option-1" checked>
+            Option one is this and that&mdash;be sure to include why it's great
+          </label>
+        </div>
+        <div class="form-check">
+                       <label class="form-check-label">
+                         <input v-model="options"   type="checkbox" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option-2">
+                         Option two can be something else and selecting it will deselect option one
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input v-model="options"   type="checkbox" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option-3">
+                          Option three is disabled
+                        </label>
+                      </div>
+                    </fieldset>
+                    <p> You selected {{options.join(', ')}} </p>
+                    
+                  </form>
+                  
+                </div>
+                </template>
 
 <style scoped></style>
