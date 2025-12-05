@@ -6,7 +6,7 @@ const message = defineModel();
 const number = 10;
 const isActive = true;
 const url = 'https://edwindiaz.com'
-let options = ['test', 'test2']
+const options = ['test', 'test2']
 
 const increment = () => {
 
@@ -72,9 +72,15 @@ onMounted(() => {
                     </fieldset>
                     <p> You selected {{options.join(', ')}} </p>
                     
-                  </form>
-                  
-                </div>
+  </form>
+</div>
+
+<div class="container">
+  <h1>Directives</h1>
+  <h2 @click="number--">Increse</h2>
+  <h2>{{ number }}</h2>
+  <h2>Decrese</h2>
+</div>
                 </template>
 
 <style scoped></style>
