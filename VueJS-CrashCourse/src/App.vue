@@ -1,15 +1,16 @@
 <script setup lang="ts">
+
 import { ref, onMounted } from 'vue'
 
 const count = ref(0);
-const message = defineModel();
-const number = 10;
+const message = ref('');
+const number = ref(10);
 const isActive = true;
 const url = 'https://edwindiaz.com'
-const options = ['test', 'test2']
+const options = ref([])
+
 
 const increment = () => {
-
   count.value++
 };
 
@@ -19,8 +20,8 @@ onMounted(() => {
 
 </script>
 
-<template>
 
+<template>
 
   <div class="container" id="app">   
     <button class="btn btn-primary" @click="increment">
@@ -39,9 +40,10 @@ onMounted(() => {
     </form>
   </div>
 
-<!-- Issue! append to a options list doesn't work! Fix this! -->
+<!-- Binding checkbox input -->
 
 <div class="container">
+  <h1>Two way binding</h1>
 
   <form action="">
       
@@ -53,34 +55,38 @@ onMounted(() => {
       <legend>Radio buttons</legend>
       <div class="form-check">
           <label class="form-check-label">
-            <input v-model="options"  type="checkbox" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option-1" checked>
+            <input v-model="options"  type="checkbox" class="form-check-input" 
+            name="optionsRadios" id="optionsRadios1" value="option-1" >
             Option one is this and that&mdash;be sure to include why it's great
           </label>
         </div>
         <div class="form-check">
-                       <label class="form-check-label">
-                         <input v-model="options"   type="checkbox" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option-2">
-                         Option two can be something else and selecting it will deselect option one
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <label class="form-check-label">
-                          <input v-model="options"   type="checkbox" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option-3">
-                          Option three is disabled
-                        </label>
-                      </div>
-                    </fieldset>
-                    <p> You selected {{options.join(', ')}} </p>
-                    
+          <label class="form-check-label">
+            <input v-model="options"   type="checkbox" class="form-check-input" 
+            name="optionsRadios" id="optionsRadios2" value="option-2">
+    Option two can be something else and selecting it will deselect option one
+          </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+            <input v-model="options"   type="checkbox" class="form-check-input" 
+              name="optionsRadios" id="optionsRadios3" value="option-3">
+                Option three is disabled
+            </label>
+          </div>
+    </fieldset>
+            <p> You selected : {{ options }}</p>
+            
   </form>
 </div>
 
+<!-- Directives -->
 <div class="container">
   <h1>Directives</h1>
-  <h2 @click="number--">Increse</h2>
+  <h2 @click="number++">Increse</h2>
   <h2>{{ number }}</h2>
-  <h2>Decrese</h2>
+  <h2 @click="number--">Decrese</h2>
 </div>
-                </template>
 
+</template>
 <style scoped></style>
