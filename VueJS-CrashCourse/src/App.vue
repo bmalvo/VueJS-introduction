@@ -8,6 +8,7 @@ const number = ref(10);
 const isActive = true;
 const url = 'https://edwindiaz.com'
 const options = ref([])
+const fontSize = 30;
 
 
 const increment = () => {
@@ -88,5 +89,19 @@ onMounted(() => {
   <h2 @click="number--">Decrese</h2>
 </div>
 
+
+<!-- Inline binding -->
+
+<h2>Inline binding</h2>
+
+<p :style="{ color:'red', fontSize: fontSize + 'px'}">Text needed for inline binding</p>
+<p :style="firstStyle">Another important text</p>
+
 </template>
-<style scoped></style>
+
+<style scoped>
+.firstStyle{
+  color:blueviolet;
+  font-style: italic;
+}
+</style>
