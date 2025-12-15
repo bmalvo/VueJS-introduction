@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, reactive } from 'vue'
 
 const count = ref(0);
 const message = ref('');
@@ -9,7 +9,10 @@ const isActive = true;
 const url = 'https://edwindiaz.com'
 const options = ref([])
 const fontSize = 30;
-
+const firstStyle = reactive({
+  color: 'blueviolet',
+  fontStyle: 'italic'
+})
 
 const increment = () => {
   count.value++
@@ -92,16 +95,32 @@ onMounted(() => {
 
 <!-- Inline binding -->
 
-<h2>Inline binding</h2>
+<div class="container">
 
-<p :style="{ color:'red', fontSize: fontSize + 'px'}">Text needed for inline binding</p>
-<p :style="firstStyle">Another important text</p>
+  <h2>Inline binding</h2>
+  
+  <p :style="{ color:'red', fontSize: fontSize + 'px'}">Text needed for inline binding</p>
+  <p :style="firstStyle">Another important text</p>
+  
+  <!-- class binding -->
+  
+<h2>class binding</h2>
+<p class="static" :class="[isActive? 'Active' : 'notActive']">text for class binding</p>
 
+</div>
 </template>
 
 <style scoped>
-.firstStyle{
-  color:blueviolet;
-  font-style: italic;
+
+
+.static{
+  color: rgb(62, 15, 202);
+}
+
+.Active {
+  color: greenyellow
+}
+.notActive{
+  color: red
 }
 </style>
