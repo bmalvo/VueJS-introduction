@@ -8,7 +8,7 @@ const number = ref(10);
 const isActive = true;
 const url = 'https://edwindiaz.com'
 const options = ref([])
-const fontSize = 30;
+const fontSize = ref(30);
 const firstStyle = reactive({
   color: 'blueviolet',
   fontStyle: 'italic'
@@ -17,6 +17,15 @@ const firstStyle = reactive({
 const increment = () => {
   count.value++
 };
+
+const increase = () => {
+  fontSize.value++
+  console.log(fontSize)
+}
+
+const decrease = () => {
+  fontSize.value--
+}
 
 onMounted(() => {
   console.log(`The initial count is ${count.value}.`)
@@ -106,6 +115,13 @@ onMounted(() => {
   
 <h2>class binding</h2>
 <p class="static" :class="[isActive? 'Active' : 'notActive']">text for class binding</p>
+
+<!-- event binding -->
+
+<h2 :style="{fontSize: fontSize + 'px'}">Primary text</h2>
+<button @click="increase" class="btn btn-success">increse</button>
+
+<button @click="decrease" class="btn btn-danger">decrese</button>
 
 </div>
 </template>
