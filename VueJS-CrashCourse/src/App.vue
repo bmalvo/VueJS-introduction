@@ -4,7 +4,7 @@ import { ref, onMounted, reactive } from 'vue'
 
 const count = ref(0);
 const message = ref('');
-const number = ref(10);
+const number = ref(0);
 const isActive = true;
 const url = 'https://edwindiaz.com'
 const options = ref([])
@@ -97,7 +97,10 @@ onMounted(() => {
 <div class="container">
   <h1>Directives</h1>
   <h2 @click="number++">Increse</h2>
-  <h2>{{ number }}</h2>
+  <span style="font-size: 24px;">{{ number }}</span> 
+  <span v-if="number < 10">Too small!</span>
+  <span v-else-if="number > 10">Too big!</span>
+  <span v-else>Perfect!</span>
   <h2 @click="number--">Decrese</h2>
 </div>
 
