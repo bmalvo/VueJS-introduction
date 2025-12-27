@@ -13,6 +13,20 @@ const firstStyle = reactive({
   color: 'blueviolet',
   fontStyle: 'italic'
 })
+const listItems = ref([
+  {
+    id: 1,
+    genre: 'dog'
+  },
+  {
+    id: 2,
+    genre: 'cat'
+  },
+  {
+    id: 3,
+    genre: 'turtle'
+  }
+])
 
 const increment = () => {
   count.value++
@@ -125,6 +139,12 @@ onMounted(() => {
 <button @click="increase" class="btn btn-success">increse</button>
 
 <button @click="decrease" class="btn btn-danger">decrese</button>
+
+<!-- list rendering -->
+
+<ul>
+  <li v-for="item in listItems" :key="item.id">{{ item.genre }}</li>
+</ul>
 
 </div>
 </template>
