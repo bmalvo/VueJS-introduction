@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import { ref, onMounted, reactive } from 'vue'
+import { ref, onMounted, reactive, computed } from 'vue'
 
 const count = ref(0);
 const message = ref('');
@@ -40,6 +40,10 @@ const increase = () => {
 const decrease = () => {
   fontSize.value--
 }
+
+const computedListItems = computed(() => {
+  return listItems.value.length > 0 ? 'Yes' : 'No'
+})
 
 onMounted(() => {
   console.log(`The initial count is ${count.value}.`)
@@ -146,6 +150,12 @@ onMounted(() => {
   <li v-for="item in listItems" :key="item.id">{{ item.genre }}</li>
 </ul>
 
+<!-- computed properties -->
+
+<h2>Have a list an items?</h2>
+<h2>{{ computedListItems }}</h2>
+
+<!-- end -->
 </div>
 </template>
 
