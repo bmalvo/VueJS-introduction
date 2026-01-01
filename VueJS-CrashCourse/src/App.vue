@@ -1,6 +1,7 @@
 <script setup lang="ts">
 
 import { ref, onMounted, reactive, computed } from 'vue'
+import Welcome from './Welcome-component.vue';
 
 const count = ref(0);
 const message = ref('');
@@ -54,6 +55,7 @@ onMounted(() => {
 
 <template>
 
+  <Welcome/>  
   <div class="container" id="app">   
     <button class="btn btn-primary" @click="increment">
       Count is: {{ count }}
