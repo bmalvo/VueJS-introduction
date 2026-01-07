@@ -2,6 +2,7 @@
 
 import { ref, onMounted, reactive, computed } from 'vue'
 import Welcome from './Welcome-component.vue';
+import AddingButton from './Adding-button.vue';
 
 const count = ref(0);
 const message = ref('');
@@ -55,11 +56,9 @@ onMounted(() => {
 
 <template>
 
-  <Welcome/>  
   <div class="container" id="app">   
-    <button class="btn btn-primary" @click="increment">
-      Count is: {{ count }}
-    </button> 
+    <Welcome/>  
+    <AddingButton :count="count" :increment="increment"/>
     <h2>{{message}}</h2>
     <h2>{{number * 2}}</h2>
     <h2>{{isActive ? 'is active' : 'is not active'}}</h2>
