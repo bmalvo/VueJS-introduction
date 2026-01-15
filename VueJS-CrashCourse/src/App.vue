@@ -3,11 +3,12 @@
 import { ref, onMounted, reactive, computed } from 'vue'
 import Welcome from './Welcome-component.vue';
 import AddingButton from './Adding-button.vue';
+import SwichButton from './Swich-button.vue';
 
 const count = ref(0);
-const message = ref('');
-const number = ref(0);
-const isActive = true;
+const message = ref('page for learning vue template');
+const number = ref(1);
+const isActive = ref(true);
 const url = 'https://edwindiaz.com'
 const options = ref([])
 const fontSize = ref(30);
@@ -43,6 +44,10 @@ const decrease = () => {
   fontSize.value--
 }
 
+const swich = () => {
+  isActive.value = !isActive.value
+}
+
 const computedListItems = computed(() => {
   return listItems.value.length > 0 ? 'Yes' : 'No'
 })
@@ -58,10 +63,11 @@ onMounted(() => {
 
   <div class="container" id="app">   
     <Welcome/>  
+    <h3>{{message}}</h3>
     <AddingButton :count="count" :increment="increment"/>
-    <h2>{{message}}</h2>
     <h2>{{number * 2}}</h2>
     <h2>{{isActive ? 'is active' : 'is not active'}}</h2>
+    <SwichButton :action="swich"/>
     <h2><a :href=url >Link</a></h2>
     <h1>Two way binding</h1>
     <form action="">

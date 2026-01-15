@@ -4,8 +4,6 @@ const props = defineProps<{
     increment?: (payload: PointerEvent) => void
 }>()
 </script>
-<!-- <script setup lang="ts">
-</script> -->
 
 <template>
  <button class="btn btn-primary" @click="props.increment">
