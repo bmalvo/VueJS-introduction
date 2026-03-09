@@ -20,17 +20,20 @@ const listItems = ref([
   {
     id: 1,
     genre: 'dog',
-    name: 'Fafik'
+    name: 'Fafik',
+    age: 12
   },
   {
     id: 2,
     genre: 'cat',
-    name: 'ninja'
+    name: 'ninja',
+    age: 7
   },
   {
     id: 3,
     genre: 'turtle',
-    name: 'Leon'
+    name: 'Leon',
+    age: 63
   }
 ])
 
@@ -203,6 +206,28 @@ onMounted(() => {
 
 <h2>Have a list an items?</h2>
 <h2>{{ computedListItems }}</h2>
+
+<!-- table -->
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">age</th>
+      <th scope="col">genre</th>
+      <th scope="col">name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr v-for="item in listItems" :key="item.id">
+      <th scope="row">{{ item.id }}</th>
+      <td>{{ item.name }}</td>
+      <td>{{ item.genre }}</td>
+      <td>{{ item.age }}</td>
+    </tr>
+   
+  </tbody>
+</table>
 
 <!-- end -->
 </div>
