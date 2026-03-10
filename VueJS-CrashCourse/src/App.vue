@@ -4,6 +4,7 @@ import { ref, onMounted, reactive, computed } from 'vue'
 import Welcome from './Welcome-component.vue';
 import AddingButton from './Adding-button.vue';
 import SwichButton from './Swich-button.vue';
+import Posts from './Posts.vue'
 
 const count = ref(0);
 const message = ref('page for learning vue template');
@@ -228,6 +229,9 @@ onMounted(() => {
    
   </tbody>
 </table>
+
+<Posts />
+
 
 <!-- end -->
 </div>
