@@ -4,7 +4,8 @@ import { ref, onMounted, reactive, computed } from 'vue'
 import Welcome from './Welcome-component.vue';
 import AddingButton from './Adding-button.vue';
 import SwichButton from './Swich-button.vue';
-import Posts from './Posts.vue'
+import Posts from './Posts.vue';
+// import router from './RouterView.vue';
 
 const count = ref(0);
 const message = ref('page for learning vue template');
@@ -67,6 +68,12 @@ onMounted(() => {
 
 
 <template>
+
+  <!-- Router place -->
+
+  <RouterLink to="/">Go to Home</RouterLink><p></p>
+  <RouterLink to="/about">Go to About</RouterLink>
+  <RouterView />
 
   <!-- Navbar -->
 

@@ -15,7 +15,7 @@ import { defineComponent } from 'vue';
 import axios from 'axios';
 
 export default defineComponent({
-  name: 'Posts',
+  name: 'Post-s',
   data() {
     return {
       posts: [
